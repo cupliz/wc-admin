@@ -9,46 +9,46 @@
     <link rel="stylesheet" href="./public/style.css" />
     <title>Admin</title>
   </head>
-
   <body>
-    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap shadow">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
-      <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search" /> -->
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
-        </li>
-      </ul>
-    </nav>
-    <div class="container-fluid">
-      <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-          <div class="sidebar-sticky">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link active" onclick="route('users')">
-                  Users
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="route('posts')">
-                  Posts
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="route('comments')">
-                  Comments
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <page-users class="col-md-10"></page-users>
-        <page-posts class="col-md-10"></page-posts>
-        <page-comments class="col-md-10"></page-comments>
+    <noscript>
+      <strong>
+        We're sorry but vue doesn't work properly without JavaScript enabled.
+        Please enable it to continue.
+      </strong>
+    </noscript>
+    <div class="wrapper" style="height: auto; min-height: 100%;">
+      <admin-header></admin-header>
+      <aside class="main-sidebar">
+        <section class="sidebar" style="height: auto;">
+          <ul class="sidebar-menu mt-4 " data-widget="tree">
+            <li id="link-users">
+              <a class="clickable" onclick="route('users', this)">
+                <span>Users</span>
+              </a>
+            </li>
+            <li id="link-posts">
+              <a class="clickable" onclick="route('posts', this)">
+                <span>Posts</span>
+              </a>
+            </li>
+            <li id="link-comments">
+              <a class="clickable" onclick="route('comments', this)">
+                <span>Comments</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </aside>
+      <div class="content-wrapper" style="min-height: 900px; width: 100%;">
+        <div id="header"></div>
+        <page-users></page-users>
+        <page-posts></page-posts>
+        <page-comments></page-comments>
       </div>
+      <Footer />
     </div>
   </body>
+  <script src="./components/header.js"></script>
   <script src="./components/users.js"></script>
   <script src="./components/posts.js"></script>
   <script src="./components/comments.js"></script>

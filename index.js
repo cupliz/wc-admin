@@ -1,13 +1,16 @@
-const route = (name = 'users') => {
+const route = (name = 'users', el) => {
   const pages = ['users', 'posts', 'comments']
-  for (let i = 0; i < pages.length; i++) {
-    const page = pages[i];
-    const element = document.querySelector(`page-${page}`)
-    if (name == page) {
-      element.removeAttribute('hidden')
-    } else {
-      if (!element.hasAttribute('hidden')) {
-        element.setAttribute('hidden', '')
+  for (const page of pages) {
+    const elPage = document.querySelector(`page-${page}`)
+    if (elPage) {
+      if (name == page) {
+        elPage.removeAttribute('hidden')
+        // if (el) el.parentElement.className += 'active'
+      } else {
+        if (!elPage.hasAttribute('hidden')) {
+          elPage.setAttribute('hidden', '')
+          // if (el) el.parentElement.classList.remove("active")
+        }
       }
     }
   }
