@@ -62,7 +62,7 @@ const showComment = (list, i) => {
 const saveComment = (e) => {
   e.preventDefault()
   const formData = new FormData(e.target)
-  const list = JSON.parse(localStorage.data)
+  const list = JSON.parse(localStorage.comments)
   let index = JSON.parse(localStorage.index)
   let detail = {}
   formData.forEach((value, key) => {
@@ -76,7 +76,7 @@ const saveComment = (e) => {
     list.push(detail)
   }
 
-  localStorage.data = JSON.stringify(list)
+  localStorage.comments = JSON.stringify(list)
   listComment(list)
 
   localStorage.editable = false

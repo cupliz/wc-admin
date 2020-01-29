@@ -59,7 +59,7 @@ const showPost = (list, i) => {
 const savePost = (e) => {
   e.preventDefault()
   const formData = new FormData(e.target)
-  const list = JSON.parse(localStorage.data)
+  const list = JSON.parse(localStorage.posts)
   let index = JSON.parse(localStorage.index)
   let detail = {}
   formData.forEach((value, key) => {
@@ -73,7 +73,7 @@ const savePost = (e) => {
     list.push(detail)
   }
 
-  localStorage.data = JSON.stringify(list)
+  localStorage.posts = JSON.stringify(list)
   listPost(list)
 
   localStorage.editable = false

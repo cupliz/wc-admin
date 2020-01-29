@@ -101,7 +101,7 @@ const showUser = (list, i) => {
 const saveUser = (e) => {
   e.preventDefault()
   const formData = new FormData(e.target)
-  const list = JSON.parse(localStorage.data)
+  const list = JSON.parse(localStorage.users)
   let index = JSON.parse(localStorage.index)
   let detail = {}
   formData.forEach((value, key) => {
@@ -128,7 +128,7 @@ const saveUser = (e) => {
     list.push(detail)
   }
 
-  localStorage.data = JSON.stringify(list)
+  localStorage.users = JSON.stringify(list)
   listUsers(list)
 
   localStorage.editable = false

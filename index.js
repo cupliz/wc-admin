@@ -1,10 +1,14 @@
+localStorage.users = []
+localStorage.posts = []
+localStorage.comments = []
 localStorage.index = null
 localStorage.editable = false
-const route = async (name = 'users', el) => {
-  // const pages = ['users', 'posts', 'comments']
+
+const route = async (name = 'users') => {
   const title = document.querySelector(`.box-title`)
   const detail = document.querySelector(`#data-detail`)
   const data = await getData(name)
+  localStorage.page = name
   switch (name) {
     case 'users':
       title.innerHTML = 'Users'
@@ -28,11 +32,18 @@ const route = async (name = 'users', el) => {
       break;
   }
 }
+
 const getData = async (name) => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/${name}`)
-  const json = await res.json()
-  localStorage.data = JSON.stringify(json)
-  return json
+  const page = localStorage.page ? localStorage.page : null
+  if (page == name && localStorage[name]) {
+    return JSON.parse(localStorage[name])
+  } else {
+    console.log('get from api..')
+    const res = await fetch(`https://jsonplaceholder.typicode.com/${name}`)
+    const json = await res.json()
+    localStorage[name] = JSON.stringify(json)
+    return json
+  }
 }
 
 route()
