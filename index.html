@@ -17,7 +17,20 @@
       </strong>
     </noscript>
     <div class="wrapper" style="height: auto; min-height: 100%;">
-      <admin-header></admin-header>
+      <header class="main-header">
+        <a class="logo">
+          <span class="logo-mini">
+            <b>A</b>
+            LT
+          </span>
+          <span class="logo-lg">
+            <b>Company</b>
+            Name
+          </span>
+        </a>
+
+        <nav class="navbar navbar-static-top"></nav>
+      </header>
       <aside class="main-sidebar">
         <section class="sidebar" style="height: auto;">
           <ul class="sidebar-menu mt-4 " data-widget="tree">
@@ -40,15 +53,56 @@
         </section>
       </aside>
       <div class="content-wrapper" style="min-height: 900px; width: 100%;">
-        <div id="header"></div>
-        <page-users></page-users>
-        <page-posts></page-posts>
-        <page-comments></page-comments>
+        <div class="col-md-10">
+          <section class="content">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="box box-solid">
+                  <div class="box-header">
+                    <i class="fa fa-text-width"></i>
+                    <h3 class="box-title">Title</h3>
+                    <div class="box-tools pull-right">
+                      <a class="btn btn-primary text-white" id="add-data">
+                        Add
+                      </a>
+                    </div>
+                  </div>
+                  <div class="box-body">
+                    <div class="table-responsive">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                          </tr>
+                        </thead>
+                        <tbody id="data-list"></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="box box-solid">
+                  <div class="box-header with-border">
+                    <i class="fa fa-text-width"></i>
+                    <h3 class="box-title">Detail</h3>
+                    <div class="box-tools pull-right">
+                      <a class="btn btn-primary text-white" id="edit-data">
+                        Edit
+                      </a>
+                    </div>
+                  </div>
+                  <div class="box-body" id="data-detail"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
-      <Footer />
+      <footer />
     </div>
   </body>
-  <script src="./components/header.js"></script>
   <script src="./components/users.js"></script>
   <script src="./components/posts.js"></script>
   <script src="./components/comments.js"></script>
